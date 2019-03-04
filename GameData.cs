@@ -6,10 +6,12 @@ public class GameData : MonoBehaviour
 {
     Player player;
     DamageDealer damageDealer;
+    
     //----Variables---------------------
     int score = 500000;
     int playerDamage;
     int playerHealth;
+    
     private void Start()
     {
         player = FindObjectOfType<Player>();
@@ -18,6 +20,8 @@ public class GameData : MonoBehaviour
     public int GetDamageContained()
     {
         playerDamage = damageDealer.GetDamage();
+        // alternative - the initialiser nor declaration would be needed
+        // playerDamage = FindObjectOfType<DamageDealer>().GetDamage();
         Debug.Log("player damage is: " + playerDamage);
 
         return playerDamage;
@@ -25,6 +29,8 @@ public class GameData : MonoBehaviour
     public int GetHealthContained()
     {
         playerHealth = player.GetHealth();
+        //alternative - the intialiser nor declaration would be needed
+        // playerHealth = FindObjectOfType<Player>().GetHealth();
         Debug.Log("player health is: " + playerHealth);
 
         return playerHealth;
