@@ -25,6 +25,8 @@ public class Money : MonoBehaviour
         else
         {
             money = gameData.GetScore() / diviser;
+            // alternative - without initialiser and declaration of the reference variable
+            // money = FindObjectOfType<GameData>().GetScore() / diviser;
             return money;
         }
     }
