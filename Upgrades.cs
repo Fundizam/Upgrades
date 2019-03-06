@@ -34,10 +34,11 @@ public class Upgrades : MonoBehaviour
     {
         //-------Money---------------------
         money = FindObjectOfType<Money>();
-        cashForSpending = money.GetMoney();
+        cashForSpending += money.GetMoney();
         moneyValueText.text = cashForSpending.ToString();
-
+        Debug.Log(cashForSpending += money.GetMoney());
         gameData = FindObjectOfType<GameData>();
+
 
         //------Health---------------------
         newPlayerHealth = gameData.GetHealthContained();
@@ -103,6 +104,13 @@ public class Upgrades : MonoBehaviour
         healthText.text = IncreaseHealth().ToString();
     }
 
+    public int GetIncreasedHealth()
+    {
+        IncreaseHealth();
+        return newPlayerHealth;
+    }
+
+
     //-------Damage---------Damage------------Damage----------------//
 
     private int IncreaseDamageCost()
@@ -146,5 +154,11 @@ public class Upgrades : MonoBehaviour
         DecreaseMoneyOnDamageClick();
         damageCostText.text = IncreaseDamageCost().ToString();
         damageText.text = IncreaseDamage().ToString();
+    }
+
+    public int GetIncreasedDamage()
+    {
+        IncreaseDamage();
+        return newPlayerDamage;
     }
 }

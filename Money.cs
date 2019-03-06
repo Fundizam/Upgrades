@@ -8,12 +8,12 @@ public class Money : MonoBehaviour
     int money;
     int diviser = 10;
 
-    public GameData gameData;
+    GameData gameData;
 
     private void Start()
     {
-        //gameData = FindObjectOfType<GameData>();
-
+        gameData = FindObjectOfType<GameData>();
+        Debug.Log("Is gameData called? " + gameData.isActiveAndEnabled);
     }
     private int CoinConversion()
     {
@@ -25,15 +25,14 @@ public class Money : MonoBehaviour
         else
         {
             money = gameData.GetScore() / diviser;
-            // alternative - without initialiser and declaration of the reference variable
-            // money = FindObjectOfType<GameData>().GetScore() / diviser;
+            //Debug.Log(money += gameData.GetScore() / diviser);
             return money;
         }
     }
     public int GetMoney()
     {
         CoinConversion();
-        Debug.Log("Money on conversion: " + money);
+        //Debug.Log("Money on conversion: " + money);
         return money;
     }
 }
